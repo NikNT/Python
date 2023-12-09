@@ -1,32 +1,17 @@
 <template>
-  <div>
-    <h1>Drinks List</h1>
-    <ul>
-      <li v-for="drink in drinks" :key="drink.id">
-        <h2>{{ drink.name }}</h2>
-        <p>{{ drink.description }}</p>
-      </li>
-    </ul>
-  </div>
+  <GetDrink />
+  <PostDrink />
 </template>
 
-<script setup>
-// export default {
-//   data() {
-//     return {
-//       drinks: [],
-//     };
-//   },
+<script>
+import GetDrink from "./components/GetDrink.vue";
+import PostDrink from "./components/PostDrink.vue";
 
-const { response: drinks } = await useFetch("http://localhost:8000/drinks/");
-
-//   async mounted() {
-//     try {
-//       const {response : drinks } = await useFetch("http://localhost:8000/drinks/");
-//       this.drinks = response.drinks;
-//     } catch (error) {
-//       console.error("Error fetching drinks:", error);
-//     }
-//   },
-// };
+export default {
+  name: "App",
+  components: {
+    GetDrink,
+    PostDrink,
+  },
+};
 </script>
